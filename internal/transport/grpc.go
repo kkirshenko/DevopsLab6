@@ -49,9 +49,9 @@ func (s *grpcServer) ChangeRating(ctx context.Context, req *structpb.Struct) (*s
 
 func RegisterRestaurantServer(reg grpc.ServiceRegistrar, srv *grpcServer) {
 	reg.RegisterService(&grpc.ServiceDesc{ServiceName:"restaurant.v1.RestaurantService", HandlerType:(*restaurantServiceServer)(nil), Methods:[]grpc.MethodDesc{
-		{MethodName:"Create",HandlerFunc:handlerCreate},
-		{MethodName:"GetByID",HandlerFunc:handlerGet},
-		{MethodName:"ChangeRating",HandlerFunc:handlerChange},
+		{MethodName:"Create",Handler:handlerCreate},
+		{MethodName:"GetByID",Handler:handlerGet},
+		{MethodName:"ChangeRating",Handler:handlerChange},
 	}}, srv)
 }
 type restaurantServiceServer interface { Create(context.Context,*structpb.Struct)(*structpb.Struct,error); GetByID(context.Context,*structpb.Struct)(*structpb.Struct,error); ChangeRating(context.Context,*structpb.Struct)(*structpb.Struct,error) }
