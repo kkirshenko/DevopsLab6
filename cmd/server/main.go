@@ -9,7 +9,6 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/go-kit/kit/endpoint"
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/kkirshenko/DevopsLab6/internal/restaurant"
 	"github.com/kkirshenko/DevopsLab6/internal/transport"
