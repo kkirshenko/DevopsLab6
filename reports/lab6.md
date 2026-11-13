@@ -26,9 +26,15 @@ go run ./cmd/server
 
 HTTP:
 ```bash
-curl -X POST localhost:8080/restaurants -H 'Content-Type: application/json' -d '{"id":"r1","name":"Cafe","address":"Main 1","rating":4.5,"open":true}'
-curl localhost:8080/restaurants/r1
-curl -X PATCH localhost:8080/restaurants/r1 -H 'Content-Type: application/json' -d '{"rating":4.8}'
+Invoke-RestMethod `
+  -Uri "http://localhost:8080/restaurants" `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body $body
+curl.exe "http://localhost:8080/restaurants/r1"
+curl.exe -X PATCH "http://localhost:8080/restaurants/r1" `
+  -H "Content-Type: application/json" `
+  --data-raw '{\"rating\":4.8}'
 ```
 
 gRPC (при установленном grpcurl):
