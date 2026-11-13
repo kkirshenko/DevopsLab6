@@ -4,10 +4,10 @@ import (
 	"context"
 
 	kitgrpc "github.com/go-kit/kit/transport/grpc"
-	"github.com/go-kit/kit/endpoint"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"github.com/kkirshenko/DevopsLab6/internal/restaurant"
 	"google.golang.org/protobuf/types/known/structpb"
 )
 
