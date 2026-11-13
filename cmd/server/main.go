@@ -11,7 +11,6 @@ import (
 
 	"github.com/go-kit/kit/endpoint"
 	httptransport "github.com/go-kit/kit/transport/http"
-	grpc "github.com/go-kit/kit/transport/grpc"
 	"github.com/kkirshenko/DevopsLab6/internal/restaurant"
 	"github.com/kkirshenko/DevopsLab6/internal/transport"
 	"google.golang.org/grpc"
