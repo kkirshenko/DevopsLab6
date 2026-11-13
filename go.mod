@@ -1,6 +1,6 @@
 module github.com/kkirshenko/DevopsLab6
 
-go 1.22
+go 1.21
 
 require (
 	github.com/go-kit/kit v0.13.0
