@@ -40,9 +40,21 @@ curl.exe -X PATCH "http://localhost:8080/restaurants/r1" `
 gRPC (при установленном grpcurl):
 ```bash
 grpcurl -plaintext localhost:9090 list
-grpcurl -plaintext -d '{"method":"Create","id":"r2","name":"Bistro","address":"Main 2","rating":4.1,"open":true}' localhost:9090 restaurant.v1.RestaurantService/Create
-grpcurl -plaintext -d '{"method":"GetByID","id":"r2"}' localhost:9090 restaurant.v1.RestaurantService/GetByID
-grpcurl -plaintext -d '{"method":"ChangeRating","id":"r2","rating":4.9}' localhost:9090 restaurant.v1.RestaurantService/ChangeRating
+Get-Content -Raw .\request.json | grpcurl -plaintext `
+  -import-path . `
+  -proto api/restaurant/v1/restaurant.proto `
+  -d "@" `
+  localhost:9090 restaurant.v1.RestaurantService/Create
+Get-Content -Raw .\get.json | grpcurl -plaintext `
+  -import-path . `
+  -proto api/restaurant/v1/restaurant.proto `
+  -d '@' `
+  localhost:9090 restaurant.v1.RestaurantService/GetByID
+Get-Content -Raw .\change.json | grpcurl -plaintext `
+  -import-path . `
+  -proto api/restaurant/v1/restaurant.proto `
+  -d '@' `
+  localhost:9090 restaurant.v1.RestaurantService/ChangeRating
 ```
 
 ## Тестирование
