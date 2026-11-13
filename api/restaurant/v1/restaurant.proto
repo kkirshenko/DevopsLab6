@@ -1,0 +1,12 @@
+syntax = "proto3";
+package restaurant.v1;
+option go_package = "github.com/kkirshenko/DevopsLab6/api/restaurant/v1;restaurantv1";
+
+import "google/protobuf/struct.proto";
+
+// Struct messages keep this API usable with grpcurl without generated Go stubs.
+service RestaurantService {
+  rpc Create(google.protobuf.Struct) returns (google.protobuf.Struct);
+  rpc GetByID(google.protobuf.Struct) returns (google.protobuf.Struct);
+  rpc ChangeRating(google.protobuf.Struct) returns (google.protobuf.Struct);
+}
